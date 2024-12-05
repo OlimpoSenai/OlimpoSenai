@@ -19,7 +19,6 @@ app.post('/inserir/usuario', (req, res) => {
   if (!nome || !email || !cpf || !senha) {
     return res.status(400).send('Nome, email, CPF e senha são obrigatórios');
   }
-
   connection.query('SELECT * FROM usuario WHERE email = ? OR cpf = ?', [email, cpf], (err, results) => {
     if (err) {
       console.error('Erro ao verificar dados existentes:', err);

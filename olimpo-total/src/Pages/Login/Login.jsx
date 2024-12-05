@@ -23,9 +23,8 @@ const Login = () => {
       if (response.status === 200) {
         // Armazenar o token JWT no localStorage
         localStorage.setItem('token', response.data.token);
-
         // Redirecionar para a página inicial após login bem-sucedido
-        navigate('/Home');
+        navigate('/Homelog');
       }
     } catch (error) {
       console.error('Erro ao fazer login:', error);
