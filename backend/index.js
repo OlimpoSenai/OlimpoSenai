@@ -237,6 +237,27 @@ app.get('/puxar/adm/:id', (req, res) => {
   });
 });
 
+
+//verificar cpf
+app.get('/verificar/cpf/:cpf', (req, res) => {
+  const { cpf } = req.params;
+
+  db.query('SELECT * FROM usuario WHERE cpf = ?', [cpf], (err, results) => {
+    if (err) {
+      console.error('Erro ao verificar CPF:', err);
+      return res.status(500).send('Erro ao verificar CPF');
+    }
+
+    // Se encontrar resultados, significa que o CPF já está cadastrado
+    if (results.length > 0) {
+      return res.json({ existe: true });
+    }
+
+    // Caso contrário, o CPF não está cadastrado
+    return res.json({ existe: false });
+  });
+});
+
 // ---------------------------- INICIAR O SERVIDOR ----------------------------
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);

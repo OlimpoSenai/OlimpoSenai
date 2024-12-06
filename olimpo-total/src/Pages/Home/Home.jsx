@@ -1,10 +1,19 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; // Importando Link
+import React, { useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom'; // Importando Link e useNavigate
 import { Link as ScrollLink } from 'react-scroll'; // Importando Link do react-scroll
 import OlimpoIcon from "../../assets/OlimpoIcon.png"; // Caminho para a imagem importada
 import styles from './Home.module.css'; // Importação do CSS Module
 
 const Home = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      navigate('/Homelog'); // Se o usuário já estiver logado, redireciona para a página Homelog
+    }
+  }, [navigate]);
+
   return (
     <div className={styles.homeContainer}>
       {/* Navbar */}

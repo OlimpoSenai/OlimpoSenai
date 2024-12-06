@@ -1,148 +1,219 @@
 /* Container principal */
 .homeContainer {
-    font-family: Arial, sans-serif;
-    background-color: #000;
-    color: #fff;
-    width: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
+  width: 100%;
+}
 
-  }
-  
-  /* Navbar */
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 20px;
+  background-color: #111;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  flex-wrap: wrap; /* Permite que os itens da navbar se ajustem em telas pequenas */
+}
+
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logoImage {
+  width: 100px; /* Ajuste o tamanho conforme necessário */
+  height: auto;
+}
+
+nav {
+  display: flex;
+  gap: 15px; /* Espaçamento entre os links */
+}
+
+.navLink {
+  color: #fff;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  /* Para dispositivos móveis */
   .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 20px;
-    background-color: #111;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    flex-wrap: wrap; /* Permite que os itens da navbar se ajustem em telas pequenas */
-  }
-  
-  .logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .logoImage {
-    width: 100px; /* Ajuste o tamanho conforme necessário */
-    height: auto;
-  }
-  
-  nav {
-    display: flex;
-    gap: 15px; /* Espaçamento entre os links */
-  }
-  
-  .navLink {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  @media (max-width: 768px) {
-    /* Para dispositivos móveis */
-    .navbar {
       justify-content: center;
       padding: 10px;
-    }
-  
-    .logoImage {
-      width: 90px; /* Ajuste o tamanho da logo em telas pequenas */
-    }
-  
-    nav {
-      flex-direction: column; /* Alinha os links verticalmente */
-      gap: 10px; /* Ajuste o espaçamento entre os links */
-    }
-  
-    .buttons {
-        display: flex;
-        flex-direction: column; /* Coloca os botões um embaixo do outro */
-        gap: 10px; /* Espaçamento entre os botões */
-        width: 100%; /* Faz a seção de botões ocupar toda a largura disponível */
-        max-width: 300px; /* Limita a largura máxima dos botões */
-      }
-  
-    .btn {
-      width: 100%; /* Faz os botões ocuparem toda a largura disponível */
-    }
-  }
-  
-  /* Seção de boas-vindas */
-  .welcomeSection {
-    text-align: center;
-    padding: 50px 20px;
-    background-image: url('/path-to-background.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  
-  .welcomeSection h1 {
-    font-size: 36px;
-  }
-  
-  .buttons {
-    display: flex;
-    flex-direction: column; /* Coloca os botões um embaixo do outro */
-    gap: 10px; /* Espaçamento entre os botões */
-    width: 100%; /* Faz a seção de botões ocupar toda a largura disponível */
-    max-width: 300px; /* Limita a largura máxima dos botões */
-  }
-  
-  .buttons .btn {
-    width: 100%; /* Faz os botões ocuparem 100% da largura da .buttons */
-    padding: 10px 20px;
-    font-size: 18px;
-    background-color: #fff;
-    color: #000;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  /* Motivação */
-  .motivationSection {
-    padding: 40px 20px;
-    text-align: center;
-  }
-  
-  .images {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  .image {
-    width: 200px;
-    border: 2px solid #fff;
-  }
-  
-  /* Depoimento ou mensagem */
-  .testimonySection {
-    padding: 20px;
-    background-color: #111;
-    text-align: center;
-    font-style: italic;
-  }
-  
-  /* Rodapé */
-  .footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #111;
-    font-size: 14px;
   }
 
-  .h1{
-    padding: 30px;
+  .logoImage {
+      width: 90px; /* Ajuste o tamanho da logo em telas pequenas */
   }
+
+  nav {
+      flex-direction: column; /* Alinha os links verticalmente */
+      gap: 10px; /* Ajuste o espaçamento entre os links */
+  }
+
+  .buttons {
+      display: flex;
+      flex-direction: column; /* Coloca os botões um embaixo do outro */
+      gap: 10px; /* Espaçamento entre os botões */
+      width: 100%; /* Faz a seção de botões ocupar toda a largura disponível */
+      max-width: 300px; /* Limita a largura máxima dos botões */
+  }
+
+  .btn {
+      width: 100%; /* Faz os botões ocuparem toda a largura disponível */
+  }
+}
+
+/* Seção de boas-vindas */
+.welcomeSection {
+  text-align: center;
+  padding: 50px 20px;
+  background-image: url(../../assets/backgroudHome.png) ; /* Caminho da sua imagem */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Necessário para o pseudo-elemento */
+  border-radius: 10px;
+  overflow: hidden;
+}
+.welcomeSection::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: inherit;
+  background-size: inherit;
+  background-position: inherit;
+  background-repeat: inherit;
+  filter: brightness(0.6); 
+  z-index: 1; 
+  pointer-events: none;
+}
+.welcomeSection .buttons {
+  position: relative; 
+  z-index: 1;   
+}
+.welcomeSection h1 {
+  font-size: 70px;
+  padding: 170px;
+  z-index: 1;
+}
+
+/*botoes da home*/
+.buttons {
+  display: flex;
+  flex-direction: column; /* Coloca os botões um embaixo do outro */
+  gap: 10px; /* Espaçamento entre os botões */
+  width: 100%; /* Faz a seção de botões ocupar toda a largura disponível */
+  max-width: 300px; /* Limita a largura máxima dos botões */
+}
+.buttons .btn {
+  width: 100%; /* Faz os botões ocuparem 100% da largura da .buttons */
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Suaviza as transições */
+}
+.buttons .btn:hover {
+  background-color: #8d8d8d; /* Cor mais escura ao passar o mouse */
+  color: #111; /* Ajusta a cor do texto se necessário */
+}
+
+
+/* Motivação */
+.motivationSection {
+  display: flex;
+  flex-direction: row; /* Organiza o conteúdo em linha */
+  justify-content: flex-start; /* Alinha todos os itens à esquerda */
+  align-items: center; /* Alinha verticalmente o conteúdo */
+  background-color: #1a1a1a; /* Fundo escuro */
+  color: white; /* Texto branco */
+  padding: 50px 20px;
+  min-height: 1200px;
+  position: relative; /* Necessário para o posicionamento da imagem de fundo */
+  background-size: cover; /* Faz a imagem cobrir todo o fundo */
+  background-position: center; /* Centraliza a imagem */
+  background-repeat: no-repeat; /* Evita que a imagem se repita */
+}
+
+.motivationSection p {
+  font-size: 3rem;
+  font-weight: 500;
+  width: 40%; /* Reduz a largura do texto */
+  line-height: 1.6;
+  margin-right: 250px; /* Adiciona espaço entre o texto e as imagens */
+  text-align: left; /* Alinha o texto à esquerda */
+}
+
+.motivationSection .images {
+  display: flex;
+  justify-content: flex-start; /* Alinha as imagens à esquerda */
+  gap: 300px; /* Diminui o espaço entre as imagens */
+  width: 40%; /* Ajusta a largura das imagens */
+  height: 600px;
+}
+
+.motivationSection .image {
+  width: 45%; /* Faz com que as imagens fiquem menores */
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover; /* Garante que as imagens preencham o espaço sem distorção */
+  
+}
+
+/* Adicionando margens ou ajustes para os elementos */
+.motivationSection .image:first-child {
+  margin-left: 0; /* Garante que a primeira imagem não tenha margem extra */
+}
+
+.motivationSection .image:last-child {
+  margin-left: 15px;
+}
+
+
+.images {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.image {
+  width: 200px;
+  border: 2px solid #fff;
+}
+
+/* Depoimento ou mensagem */
+.testimonySection {
+  padding: 20px;
+  background-color: #111;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Rodapé */
+.footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #111;
+  font-size: 14px;
+}
+
+.h1 {
+  padding: 30px;
+}

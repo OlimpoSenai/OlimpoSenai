@@ -50,12 +50,15 @@ p {
 .inputField {
     position: relative;
     margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    width: 100%;
 }
 
 input {
     width: 100%;
     padding: 10px;
-    padding-left: 40px;
+    padding-left: 40px; /* Espaço para o ícone */
     font-size: 16px;
     border-radius: 10px;
     border: 1px solid #ddd;
@@ -94,6 +97,7 @@ input {
     border-color: white;
     color: #ffffff;
 }
+
 .voltarButton { 
     width: 60px;
     padding: 7px;
@@ -120,4 +124,48 @@ input {
 
 .registerContainer p {
     color: black;
+}
+
+.erro {
+    color: red;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Alteração no campo de senha */
+.inputSenha {
+    width: 100%;
+    padding-right: 35px;  /* Espaço para o ícone de olho */
+    padding-left: 40px;   /* Aumenta o espaço à esquerda do texto */
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 16px;
+}
+
+.togglePassword {
+    position: absolute;
+    right: 10px;  /* Ícone de olho na extrema direita */
+    background: none;
+    border: none;
+    color: #007BFF;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.icon {
+    font-size: 20px;
+    position: absolute;
+    left: 10px;
+    pointer-events: none;
+}
+
+/* Ajuste no campo de placeholder (apenas para a senha) */
+.inputSenha::placeholder {
+    padding-left: 30px; /* Ajuste no padding-left para afastar mais o texto da borda */
+}
+
+/* Ajuste do texto do campo para que fique alinhado com os outros campos */
+input::placeholder {
+    text-indent: 5px;  /* Ajuste de indentação para todos os campos de texto */
 }

@@ -5,6 +5,8 @@ import { FiMail } from 'react-icons/fi';
 import { AiOutlineIdcard } from 'react-icons/ai';
 import OlimpoIcon from "../../assets/OlimpoIcon.png";
 import axios from 'axios';
+import { formatarCpf, validarCpf } from '../../util/validarCpf';  // CPF
+import { formatarEmail, validarEmail } from '../../util/validarEmail';  // E-mail
 import styles from './Cadastro.module.css';
 
 const Cadastro = () => {
@@ -12,21 +14,61 @@ const Cadastro = () => {
   const [email, setEmail] = useState('');
   const [cpf, setCpf] = useState('');
   const [senha, setSenha] = useState('');
+  const [mostrarSenha, setMostrarSenha] = useState(false);
+  const [erroCpf, setErroCpf] = useState('');
+  const [erroEmail, setErroEmail] = useState('');
+  const [erroBackend, setErroBackend] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmitCadastro = async (event) => {
-    event.preventDefault();
-    
-    const userData = { nome, email, cpf, senha };
+  // Atualiza o CPF e formata enquanto o usuário digita
+  const handleCpfChange = (e) => {
+    const cpfInput = e.target.value;
+    setCpf(formatarCpf(cpfInput));  // Formata o CPF enquanto o usuário digita
+    setErroCpf('');  // Reseta o erro de CPF enquanto digita
+  };
+
+  // Atualiza o e-mail e formata para minúsculas
+  const handleEmailChange = (e) => {
+    const emailInput = e.target.value;
+    setEmail(formatarEmail(emailInput));  // Formata o e-mail para minúsculas
+    setErroEmail('');  // Reseta o erro de e-mail enquanto digita
+  };
+
+  // Envia os dados para o backend
+  const handleSubmitCadastro = async (e) => {
+    e.preventDefault();
+
+    // Validações de CPF e E-mail
+    if (!validarCpf(cpf)) {  
+      setErroCpf('CPF inválido');
+      return;
+    }
+
+    if (!validarEmail(email)) {  
+      setErroEmail('E-mail inválido');
+      return;
+    }
 
     try {
-      const response = await axios.post('http://localhost:3001/inserir/usuario', userData);
-
+      const response = await axios.post('http://localhost:3001/inserir/usuario', { nome, email, cpf, senha });
       if (response.status === 200) {
         navigate('/Login');
       }
     } catch (error) {
-      alert('Erro ao se cadastrar. Tente novamente.');
+      // Exibe o erro retornado pelo backend
+      if (error.response && error.response.data) {
+        const erroMsg = error.response.data;
+
+        // Verifica se o erro é relacionado ao CPF ou E-mail já cadastrados
+        if (erroMsg.includes("E-mail")) {
+          setErroEmail("E-mail já cadastrado");
+        }
+        if (erroMsg.includes("CPF")) {
+          setErroCpf("CPF já cadastrado");
+        }
+      } else {
+        setErroBackend('Erro ao se cadastrar. Tente novamente.');
+      }
     }
   };
 
@@ -36,53 +78,54 @@ const Cadastro = () => {
         <div className={styles.loginContainer}>
           <img src={OlimpoIcon} alt="OLIMPO" />
           <p>Bem-vindo(a)! Não tem conta? Crie sua conta agora mesmo.</p>
-          <button className={styles.loginButton} onClick={() => navigate('/Login')}>
-            Entrar
-          </button>
-          <button className={styles.voltarButton} onClick={() => navigate('/Voltar')}>Voltar</button>
+          <button className={styles.loginButton} onClick={() => navigate('/Login')}>Entrar</button>
+          <button className={styles.voltarButton} onClick={() => navigate('/Home')}>Voltar</button>
         </div>
 
         <div className={styles.registerContainer}>
-          <h1 className={styles.h1}>Crie sua conta</h1>
+          <h1>Crie sua conta</h1>
           <form onSubmit={handleSubmitCadastro}>
             <div className={styles.inputField}>
-              <input
-                type="text"
-                placeholder="Nome"
-                required
-                onChange={(e) => setNome(e.target.value)}
-              />
+              <input type="text" placeholder="Nome" value={nome} onChange={(e) => setNome(e.target.value)} required />
               <FaUser className={styles.icon} />
             </div>
 
             <div className={styles.inputField}>
-              <input
-                type="email"
-                placeholder="E-mail"
-                required
-                onChange={(e) => setEmail(e.target.value)}
+              <input 
+                type="email" 
+                placeholder="E-mail" 
+                value={email} 
+                onChange={handleEmailChange} 
+                required 
               />
               <FiMail className={styles.icon} />
             </div>
+            {erroEmail && <p className={styles.erro}>{erroEmail}</p>} {/* Exibir erro de e-mail abaixo do campo E-mail */}
 
             <div className={styles.inputField}>
-              <input
-                type="text"
-                placeholder="CPF"
-                required
-                onChange={(e) => setCpf(e.target.value)}
+              <input 
+                type="text" 
+                placeholder="CPF" 
+                value={cpf} 
+                onChange={handleCpfChange} 
+                required 
               />
               <AiOutlineIdcard className={styles.icon} />
             </div>
+            {erroCpf && <p className={styles.erro}>{erroCpf}</p>} {/* Exibir erro de CPF abaixo do campo CPF */}
 
             <div className={styles.inputField}>
-              <input
-                type="password"
-                placeholder="Senha"
-                required
-                onChange={(e) => setSenha(e.target.value)}
+              <input 
+                type={mostrarSenha ? 'text' : 'password'} 
+                placeholder="Senha" 
+                value={senha} 
+                onChange={(e) => setSenha(e.target.value)} 
+                required 
               />
               <FaLock className={styles.icon} />
+              <button type="button" onClick={() => setMostrarSenha(!mostrarSenha)} className={styles.togglePassword}>
+                {mostrarSenha ? 'Ocultar' : 'Mostrar'}
+              </button>
             </div>
 
             <button className={styles.registerButton} type="submit">Registrar</button>
