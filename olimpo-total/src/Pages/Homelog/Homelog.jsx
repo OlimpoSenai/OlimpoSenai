@@ -40,7 +40,38 @@ const Homelog = () => {
         <button onClick={handleLogout} className={styles.logoutButton}>Sair</button>
       </section>
 
-      {/* Restante do conteúdo */}
+      {/* Motivação */}
+      <section className={styles.motivationSection}>
+        <p>
+          Foco, força, disciplina e resultados! A motivação está dentro de você e o ambiente para te inspirar é aqui!<br />
+          O seu objetivo também é o nosso!
+        </p>
+        <div className={styles.images}>
+          <img src="/path-to-image1.jpg" alt="Imagem 1" className={styles.image} />
+          <img src="/path-to-image2.jpg" alt="Imagem 2" className={styles.image} />
+        </div>
+      </section>
+
+      {/* Vídeo sobre a Academia */}
+      <section className={styles.videoSection}>
+        <div className={styles.text}>
+          <h2>Sobre a Academia</h2>
+          <p>
+            A nossa academia oferece um espaço moderno e bem equipado para que você alcance seus objetivos fitness. Contamos com professores especializados, equipamentos de última geração e uma variedade de atividades para todos os níveis de condicionamento físico.
+          </p>
+        </div>
+        <iframe 
+          src="https://www.youtube.com/embed/video_id" 
+          title="Video sobre a academia" 
+          frameBorder="0" 
+          allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+          allowFullScreen
+        ></iframe>
+      </section>
+
+      <footer className={styles.footer}>
+        <p>© 2024 OLIMPO - Todos os direitos reservados.</p>
+      </footer>
     </div>
   );
 };
