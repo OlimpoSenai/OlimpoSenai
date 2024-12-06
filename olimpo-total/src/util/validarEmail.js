@@ -7,7 +7,7 @@ export const validarEmail = (email) => {
     return regex.test(email);  // Retorna true se o e-mail for válido
   };
   
-  // Função para formatar o e-mail (converte para minúsculas)
+  // Função para formatar o e-mail (converte para minúsculas TESTE DE COMMIT GITHUB)
   export const formatarEmail = (email) => {
     return email.toLowerCase();  // Converte o e-mail para minúsculas
   };
