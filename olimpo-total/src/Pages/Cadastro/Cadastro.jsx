@@ -20,31 +20,30 @@ const Cadastro = () => {
   const [erroBackend, setErroBackend] = useState('');
   const navigate = useNavigate();
 
-  // Atualiza o CPF e formata enquanto o usuário digita
   const handleCpfChange = (e) => {
     const cpfInput = e.target.value;
-    setCpf(formatarCpf(cpfInput));  // Formata o CPF enquanto o usuário digita
-    setErroCpf('');  // Reseta o erro de CPF enquanto digita
+    const cpfSemFormatacao = cpfInput.replace(/[^\d]/g, '');
+    const cpfFormatado = formatarCpf(cpfSemFormatacao);
+    setCpf(cpfFormatado);
+    setErroCpf('');
   };
 
-  // Atualiza o e-mail e formata para minúsculas
   const handleEmailChange = (e) => {
     const emailInput = e.target.value;
-    setEmail(formatarEmail(emailInput));  // Formata o e-mail para minúsculas
-    setErroEmail('');  // Reseta o erro de e-mail enquanto digita
+    const emailFormatado = formatarEmail(emailInput);
+    setEmail(emailFormatado);
+    setErroEmail('');
   };
 
-  // Envia os dados para o backend
   const handleSubmitCadastro = async (e) => {
     e.preventDefault();
 
-    // Validações de CPF e E-mail
-    if (!validarCpf(cpf)) {  
+    if (!validarCpf(cpf)) {
       setErroCpf('CPF inválido');
       return;
     }
 
-    if (!validarEmail(email)) {  
+    if (!validarEmail(email)) {
       setErroEmail('E-mail inválido');
       return;
     }
@@ -55,35 +54,37 @@ const Cadastro = () => {
         navigate('/Login');
       }
     } catch (error) {
-      // Exibe o erro retornado pelo backend
-      if (error.response && error.response.data) {
-        const erroMsg = error.response.data;
-
-        // Verifica se o erro é relacionado ao CPF ou E-mail já cadastrados
-        if (erroMsg.includes("E-mail")) {
-          setErroEmail("E-mail já cadastrado");
-        }
-        if (erroMsg.includes("CPF")) {
-          setErroCpf("CPF já cadastrado");
+      if (error.response) {
+        if (error.response.data) {
+          const erroMsg = error.response.data;
+          if (erroMsg.includes("E-mail")) {
+            setErroEmail("E-mail já cadastrado");
+          }
+          if (erroMsg.includes("CPF")) {
+            setErroCpf("CPF já cadastrado");
+          }
+        } else {
+          setErroBackend('Erro ao se cadastrar. Tente novamente.');
         }
       } else {
-        setErroBackend('Erro ao se cadastrar. Tente novamente.');
+        setErroBackend('Erro ao se conectar com o servidor. Tente novamente.');
       }
     }
-  };
+  }
 
   return (
     <div className={styles.container}>
       <div className={styles.formContainer}>
         <div className={styles.loginContainer}>
           <img src={OlimpoIcon} alt="OLIMPO" />
-          <p>Bem-vindo(a)! Não tem conta? Crie sua conta agora mesmo.</p>
+          <p>Bem-vindo(a)! Já tem conta? Entre na sua conta agora mesmo.</p>
           <button className={styles.loginButton} onClick={() => navigate('/Login')}>Entrar</button>
           <button className={styles.voltarButton} onClick={() => navigate('/Home')}>Voltar</button>
         </div>
 
         <div className={styles.registerContainer}>
           <h1>Crie sua conta</h1>
+          <p>Cadastre abaixo</p>
           <form onSubmit={handleSubmitCadastro}>
             <div className={styles.inputField}>
               <input type="text" placeholder="Nome" value={nome} onChange={(e) => setNome(e.target.value)} required />
@@ -100,7 +101,7 @@ const Cadastro = () => {
               />
               <FiMail className={styles.icon} />
             </div>
-            {erroEmail && <p className={styles.erro}>{erroEmail}</p>} {/* Exibir erro de e-mail abaixo do campo E-mail */}
+            {erroEmail && <p className={styles.erro}>{erroEmail}</p>} {/* Exibir erro de e-mail */}
 
             <div className={styles.inputField}>
               <input 
@@ -112,7 +113,7 @@ const Cadastro = () => {
               />
               <AiOutlineIdcard className={styles.icon} />
             </div>
-            {erroCpf && <p className={styles.erro}>{erroCpf}</p>} {/* Exibir erro de CPF abaixo do campo CPF */}
+            {erroCpf && <p className={styles.erro}>{erroCpf}</p>} {/* Exibir erro de CPF */}
 
             <div className={styles.inputField}>
               <input 

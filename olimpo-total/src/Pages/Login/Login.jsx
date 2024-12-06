@@ -67,18 +67,19 @@ const Login = () => {
   return (
     <div className={styles.container}>
       <div className={styles.formContainer}>
-        <div className={styles.loginContainer}>
+        <div className={styles.registerContainer}>
           <img src={OlimpoIcon} alt="OLIMPO" />
           <p>Bem-vindo(a)! Não tem conta? Crie sua conta agora mesmo.</p>
           {/* Link para a página de cadastro */}
-          <button className={styles.loginButton} onClick={() => navigate('/Cadastro')}>
+          <button className={styles.registerButton} onClick={() => navigate('/Cadastro')}>
             Registrar
           </button>
           <button className={styles.voltarButton2} onClick={() => navigate('/Home')}>Voltar</button>
         </div>
 
-        <div className={styles.registerContainer}>
+        <div className={styles.loginContainer}>
           <h1 className={styles.h1}>Faça seu login</h1>
+          <p>Logue abaixo</p>
           <form onSubmit={handleSubmitLogin}>
             <div className={styles.inputField}>
               <input
@@ -111,7 +112,7 @@ const Login = () => {
             {/* Exibe erro de senha */}
             {erroSenha && <p className={styles.erro}>{erroSenha}</p>}
 
-            <button className={styles.registerButton} type="submit">Login</button>
+            <button className={styles.loginButton} type="submit">Login</button>
           </form>
         </div>
       </div>

@@ -34,6 +34,7 @@ app.post('/inserir/usuario', (req, res) => {
     if (results.length > 0) {
       return res.status(400).send('E-mail ou CPF já cadastrados');
     }
+    if (results.length > 0) {}
 
     db.query('INSERT INTO usuario (nome, email, cpf, senha) VALUES (?, ?, ?, ?)', 
       [nome, email, cpf, senha], 

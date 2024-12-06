@@ -22,10 +22,10 @@ const Home = () => {
           <img src={OlimpoIcon} alt="OLIMPO" className={styles.logoImage} />
         </div>
         <nav>
-          <ScrollLink to="financeiro" smooth={true} duration={500} className={styles.navLink}>
+          <ScrollLink to="section2" smooth={true} duration={500} className={styles.navLink}>
             Financeiro
           </ScrollLink>
-          <ScrollLink to="duvidas" smooth={true} duration={500} className={styles.navLink}>
+          <ScrollLink to="section3" smooth={true} duration={500} className={styles.navLink}>
             Dúvidas
           </ScrollLink>
           <ScrollLink to="planos" smooth={true} duration={500} className={styles.navLink}>
@@ -51,7 +51,7 @@ const Home = () => {
       </section>
 
       {/* Motivação */}
-      <section id="financeiro" className={styles.motivationSection}>
+      <section id="section2" className={styles.motivationSection}>
         <p>
           Foco, força, disciplina e resultados! A motivação está dentro de você e o ambiente para te inspirar é aqui!<br />
           O seu objetivo também é o nosso!
@@ -60,6 +60,11 @@ const Home = () => {
           <img src="/path-to-image1.jpg" alt="Imagem 1" className={styles.image} />
           <img src="/path-to-image2.jpg" alt="Imagem 2" className={styles.image} />
         </div>
+      </section>
+      <section id="section3" className={styles.duvidasSection}>
+        <p>
+          section3
+        </p>
       </section>
 
       {/* Depoimento ou mensagem */}
