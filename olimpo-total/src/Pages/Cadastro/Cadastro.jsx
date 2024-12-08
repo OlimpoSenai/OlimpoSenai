@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaUser, FaLock } from 'react-icons/fa';
 import { FiMail } from 'react-icons/fi';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { AiOutlineIdcard } from 'react-icons/ai';
 import OlimpoIcon from "../../assets/OlimpoIcon.png";
 import axios from 'axios';
@@ -54,6 +55,7 @@ const Cadastro = () => {
         navigate('/Login');
       }
     } catch (error) {
+      console.error('Erro no cadastro:', error); // Adicionando o console.log para capturar o erro completo
       if (error.response) {
         if (error.response.data) {
           const erroMsg = error.response.data;
@@ -87,14 +89,15 @@ const Cadastro = () => {
           <p>Cadastre abaixo</p>
           <form onSubmit={handleSubmitCadastro}>
             <div className={styles.inputField}>
-              <input type="text" placeholder="Nome" value={nome} onChange={(e) => setNome(e.target.value)} required />
+              <input type="text" className={styles.inputCadastro} placeholder="Nome Completo*" value={nome} onChange={(e) => setNome(e.target.value)} required />
               <FaUser className={styles.icon} />
             </div>
 
             <div className={styles.inputField}>
               <input 
                 type="email" 
-                placeholder="E-mail" 
+                className={styles.inputCadastro}
+                placeholder="E-mail*" 
                 value={email} 
                 onChange={handleEmailChange} 
                 required 
@@ -106,7 +109,8 @@ const Cadastro = () => {
             <div className={styles.inputField}>
               <input 
                 type="text" 
-                placeholder="CPF" 
+                className={styles.inputCadastro}
+                placeholder="CPF*" 
                 value={cpf} 
                 onChange={handleCpfChange} 
                 required 
@@ -118,14 +122,15 @@ const Cadastro = () => {
             <div className={styles.inputField}>
               <input 
                 type={mostrarSenha ? 'text' : 'password'} 
-                placeholder="Senha" 
+                className={styles.inputCadastro}
+                placeholder="Senha*" 
                 value={senha} 
                 onChange={(e) => setSenha(e.target.value)} 
                 required 
               />
               <FaLock className={styles.icon} />
-              <button type="button" onClick={() => setMostrarSenha(!mostrarSenha)} className={styles.togglePassword}>
-                {mostrarSenha ? 'Ocultar' : 'Mostrar'}
+              <button type="button" onClick={() => setMostrarSenha(!mostrarSenha)} className={styles.mostrarPassword}>
+                {mostrarSenha ? <FaEyeSlash /> : <FaEye />}
               </button>
             </div>
 

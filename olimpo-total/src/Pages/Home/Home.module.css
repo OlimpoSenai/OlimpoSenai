@@ -81,18 +81,17 @@ nav {
 /* Seção de boas-vindas */
 .welcomeSection {
   text-align: center;
-  padding: 50px 20px;
+  padding: 250px 20px;
   background-image: url(../../assets/backgroudHome.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative;
   overflow: hidden;
+  
 }
 
 .welcomeSection::before {
@@ -156,10 +155,11 @@ nav {
   background-color: #1a1a1a;
   color: white;
   padding: 100px 50px;
-  min-height: 600px;
+  min-height: 1200px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  height: 100vh;
 }
 
 .motivationSection p {

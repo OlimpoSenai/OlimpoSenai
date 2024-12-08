@@ -29,15 +29,14 @@ const Homelog = () => {
           <img src={OlimpoIcon} alt="OLIMPO" className={styles.logoImage} />
         </div>
         <nav>
-          {/* Links da navegação */}
+        <button onClick={handleLogout} className={styles.logoutButton}>Sair</button>
         </nav>
       </header>
 
       {/* Seção de boas-vindas */}
       <section className={styles.welcomeSection}>
         <h1>BEM-VINDOS AO OLIMPO!</h1>
-        {/* Botão de logout */}
-        <button onClick={handleLogout} className={styles.logoutButton}>Sair</button>
+        
       </section>
 
       {/* Motivação */}

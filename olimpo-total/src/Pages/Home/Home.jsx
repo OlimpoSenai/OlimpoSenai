@@ -8,6 +8,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
+    document.title = "Bem vindo(a)!";
     const token = localStorage.getItem('token');
     if (token) {
       navigate('/Homelog'); // Redireciona se o usuário já estiver logado
@@ -22,17 +23,13 @@ const Home = () => {
           <img src={OlimpoIcon} alt="OLIMPO" className={styles.logoImage} />
         </div>
         <nav>
-<<<<<<< HEAD
+        <ScrollLink to="section1" smooth={true} duration={500} className={styles.navLink}>
+            home
+          </ScrollLink>
           <ScrollLink to="section2" smooth={true} duration={500} className={styles.navLink}>
             Financeiro
           </ScrollLink>
           <ScrollLink to="section3" smooth={true} duration={500} className={styles.navLink}>
-=======
-          <ScrollLink to="Section2" smooth={true} duration={500} className={styles.navLink}>
-            Financeiro
-          </ScrollLink>
-          <ScrollLink to="Section3" smooth={true} duration={500} className={styles.navLink}>
->>>>>>> 4e78a1fac9b99a02b46485229104cc3fa6710215
             Dúvidas
           </ScrollLink>
           <ScrollLink to="Section4" smooth={true} duration={500} className={styles.navLink}>
@@ -45,7 +42,7 @@ const Home = () => {
       </header>
 
       {/* Seção de boas-vindas */}
-      <section className={styles.welcomeSection}>
+      <section id="section1" className={styles.welcomeSection}>
         <h1>BEM-VINDOS AO OLIMPO!</h1>
         <div className={styles.buttons}>
           <Link to="/Login">
@@ -58,11 +55,7 @@ const Home = () => {
       </section>
 
       {/* Motivação */}
-<<<<<<< HEAD
       <section id="section2" className={styles.motivationSection}>
-=======
-      <section id="Section2" className={styles.motivationSection}>
->>>>>>> 4e78a1fac9b99a02b46485229104cc3fa6710215
         <p>
           Foco, força, disciplina e resultados! A motivação está dentro de você e o ambiente para te inspirar é aqui!<br />
           O seu objetivo também é o nosso!
