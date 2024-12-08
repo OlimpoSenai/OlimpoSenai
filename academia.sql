@@ -25,4 +25,5 @@ cpf char(11) not null,
 senha varchar(255) not null
 );
 
-select * from usuario
+select * from usuario;
+ALTER TABLE usuario MODIFY COLUMN cpf VARCHAR(14);
