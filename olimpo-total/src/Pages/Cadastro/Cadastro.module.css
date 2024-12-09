@@ -30,7 +30,7 @@
 .registerContainer {
     background: rgb(255, 255, 255);
     padding-top: 10px;
-    padding: 70px;
+    padding: 40px;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -95,6 +95,11 @@ p {
     align-items: center;
     font-weight: 650;
     margin: 0 auto;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.registerButton:hover {
+    background-color: #1ea53b;
 }
 
 .loginButton {
@@ -110,6 +115,11 @@ p {
     border-color: #30F537;
     border: none;
     font-weight: 650;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.loginButton:hover {
+    background-color: #1ea53b;
 }
 
 .voltarButton {
@@ -193,3 +203,12 @@ input::placeholder {
     text-indent: 5px;  /* Ajuste de indentação para todos os campos de texto */
 }
 
+.esqueciSenha a {
+    font-family: "Montserrat", sans-serif;
+    transition: color 0.3s ease, color 0.3s ease;
+}
+
+.esqueciSenha a:hover {
+    color: #30F537; /* Cor ao passar o mouse */
+    text-decoration: underline; /* Opcional: adiciona um sublinhado no hover */
+}

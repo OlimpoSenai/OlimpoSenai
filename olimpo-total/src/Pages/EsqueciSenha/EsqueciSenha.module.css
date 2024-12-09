@@ -1,0 +1,89 @@
+/* Container principal */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw; /* Ocupa toda a largura da viewport */
+    height: 100vh; /* Ocupa toda a altura da viewport */
+    background: #f4f4f4; /* Fundo suave */
+}
+
+/* Box do formulário */
+.resetaContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff; /* Fundo branco para destaque */
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Sombra para realce */
+    max-width: 400px;
+    width: 100%; /* Responsivo */
+}
+
+/* Título */
+.h1frase {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+/* Parágrafo descritivo */
+.pfrase {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    color: #666;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Campo de entrada */
+.inputField input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    margin-bottom: 20px;
+    outline: none;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease;
+}
+
+/* Efeito de foco no campo */
+.inputField input:focus {
+    border-color: rgb(30, 165, 59);
+}
+
+/* Botão de envio */
+.submitButton {
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    padding: 12px;
+    background-color: #1ea53b;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Efeito de hover no botão */
+.submitButton:hover {
+    background-color: #13912e;
+    transform: scale(1.05);
+}
+
+/* Mensagem de retorno */
+.message {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    color: #333;
+    text-align: center;
+    margin-top: 15px;
+}

@@ -7,6 +7,7 @@ import OlimpoIcon from "../../assets/OlimpoIcon.png";
 import axios from 'axios';
 import styles from './Login.module.css'; // Usando CSS Modules
 import { validarEmail, formatarEmail } from '../../util/validarEmail';  // Importe as funções
+import { Helmet } from 'react-helmet';
 
 const Login = () => {
   
@@ -74,6 +75,9 @@ const Login = () => {
 
   return (
     <div className={styles.container}>
+      <Helmet>
+        <title>Olimpo - Faça login</title>
+      </Helmet>
       <div className={styles.formContainer}>
         <div className={styles.registerContainer}>
           <img src={OlimpoIcon} alt="OLIMPO" />
@@ -119,9 +123,17 @@ const Login = () => {
                 {mostrarSenha ? <FaEyeSlash /> : <FaEye />}
               </button>
             </div>
-            {/* Exibe erro de senha */}
-
             <button className={styles.loginButton} type="submit">Login</button>
+            <p className={styles.esqueciSenha}>
+            <a 
+                href="/EsqueciSenha" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className={styles.link}
+                >
+                Esqueci minha senha
+              </a>
+            </p>
           </form>
         </div>
       </div>

@@ -18,7 +18,7 @@ const Homelog = () => {
   // Função para deslogar o usuário
   const handleLogout = () => {
     localStorage.removeItem('token'); // Remove o token do localStorage
-    navigate('/Login'); // Redireciona para a página de login
+    navigate('/Home'); // Redireciona para a página de login
   };
 
   return (

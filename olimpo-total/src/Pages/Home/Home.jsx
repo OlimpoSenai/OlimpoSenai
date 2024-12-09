@@ -3,12 +3,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Link as ScrollLink } from 'react-scroll';
 import OlimpoIcon from "../../assets/OlimpoIcon.png";
 import styles from './Home.module.css'; // CSS Module
+import { Helmet } from 'react-helmet';
 
 const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    document.title = "Bem vindo(a)!";
     const token = localStorage.getItem('token');
     if (token) {
       navigate('/Homelog'); // Redireciona se o usuário já estiver logado
@@ -17,6 +17,9 @@ const Home = () => {
 
   return (
     <div className={styles.homeContainer}>
+      <Helmet>
+        <title>Olimpo - Bem vindo(a)!</title>
+      </Helmet>
       {/* Navbar */}
       <header className={styles.navbar}>
         <div className={styles.logo}>

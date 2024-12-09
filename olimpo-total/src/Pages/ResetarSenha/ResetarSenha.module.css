@@ -1,0 +1,85 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+
+.resetaContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 400px;
+}
+
+.h2frase {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.formGroup {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.label {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1rem;
+    color: #555;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.inputField {
+    font-family: "Montserrat", sans-serif;
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.inputField:focus {
+    border-color: #30f537;
+}
+
+.resetabutton {
+    font-family: "Montserrat", sans-serif;
+    width: 100%;
+    padding: 12px;
+    background-color: #30f537;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.resetabutton:hover {
+    background-color: #1ea53b;
+}
+
+.resetabutton:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.message {
+    font-family: "Montserrat", sans-serif;
+    font-size: 0.9rem;
+    color: red;
+    text-align: center;
+    margin-top: 10px;
+}

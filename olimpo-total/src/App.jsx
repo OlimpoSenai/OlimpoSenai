@@ -5,6 +5,8 @@ import Home from './Pages/Home/Home.jsx';
 import Login from "./Pages/Login/Login.jsx";
 import Homelog from "./Pages/Homelog/Homelog.jsx";
 import PaginaAdm from "./Pages/PaginaAdm/PaginaAdm.jsx";
+import EsqueciSenha from "./Pages/EsqueciSenha/EsqueciSenha.jsx";
+import ResetarSenha from "./Pages/ResetarSenha/ResetarSenha.jsx";
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
           <Route path="/Home" element={<Home />} />
           <Route path="/Homelog" element={<Homelog />} />
           <Route path="/PaginaAdm" element={<PaginaAdm />} />
+          <Route path="/EsqueciSenha" element={<EsqueciSenha />} />
+          <Route path="/resetar-Senha" element={<ResetarSenha />} />
         </Routes>
       </div>
     </Router>

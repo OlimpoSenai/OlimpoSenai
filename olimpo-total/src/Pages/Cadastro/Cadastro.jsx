@@ -9,6 +9,7 @@ import axios from 'axios';
 import { formatarCpf, validarCpf } from '../../util/validarCpf';  // CPF
 import { formatarEmail, validarEmail } from '../../util/validarEmail';  // E-mail
 import styles from './Cadastro.module.css';
+import { Helmet } from 'react-helmet';
 
 const Cadastro = () => {
   const [nome, setNome] = useState('');
@@ -76,6 +77,9 @@ const Cadastro = () => {
 
   return (
     <div className={styles.container}>
+       <Helmet>
+        <title>Olimpo - cadastre-se</title>
+      </Helmet>
       <div className={styles.formContainer}>
         <div className={styles.loginContainer}>
           <img src={OlimpoIcon} alt="OLIMPO" />
@@ -133,7 +137,6 @@ const Cadastro = () => {
                 {mostrarSenha ? <FaEyeSlash /> : <FaEye />}
               </button>
             </div>
-
             <button className={styles.registerButton} type="submit">Registrar</button>
           </form>
         </div>
