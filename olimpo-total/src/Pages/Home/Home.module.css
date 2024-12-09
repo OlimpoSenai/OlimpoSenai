@@ -1,15 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Yuji+Mai&display=swap');
 /* Container principal */
-.homeContainer {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  color: #333;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0;
-}
+
 
 /* Navbar */
 .navbar {
@@ -197,17 +188,17 @@ nav {
 }
 
 /* Duvidas e Planos */
-.duvidasSection, .planosSection {
+.duvidasSection {
   padding: 80px 20px;
-  width: 100%;
-  max-width: 1200px;
-  margin: 40px 0;
-  text-align: center;
-  background-color: #f4f4f4;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 100vh;
 }
-
+.planosSection {
+  background-color: black;
+}
 .ctaButton {
   background-color: #007bff;
   color: white;
@@ -230,4 +221,41 @@ nav {
   background-color: #111;
   color: white;
   font-size: 14px;
+}
+
+.academiaSection {
+  display: flex;
+  background-color: #a23131;
+  height: 80vh;
+  width: 100vw;
+  align-items: center;
+  align-content: center;
+  justify-content: left;
+  padding: 50px;
+}
+
+.bigbox{
+  display: flex;
+  flex-direction: row;
+  width: 90vw;
+  padding: 2%;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  justify-self: center;
+}
+
+.left,
+.right
+{display: flex;
+  flex-direction: column;
+  width: 50%;
+  padding: 2%;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+}
+
+.pfrase {
+  color: black;
 }

@@ -4,6 +4,9 @@ import { Link as ScrollLink } from 'react-scroll';
 import OlimpoIcon from "../../assets/OlimpoIcon.png";
 import styles from './Home.module.css'; // CSS Module
 import { Helmet } from 'react-helmet';
+import colemanicon from  "../../assets/coleman.png";
+import forcaicon from "../../assets/forca.png";
+import bombadoicon from "../../assets/bombado.png"
 
 const Home = () => {
   const navigate = useNavigate();
@@ -64,39 +67,32 @@ const Home = () => {
           O seu objetivo também é o nosso!
         </p>
         <div className={styles.images}>
-          <img src="/path-to-image1.jpg" alt="Imagem Motivacional 1" className={styles.image} />
-          <img src="/path-to-image2.jpg" alt="Imagem Motivacional 2" className={styles.image} />
+          <img src={colemanicon} alt="Imagem Motivacional 1" className={styles.image} />
+          <img src={forcaicon} alt="Imagem Motivacional 2" className={styles.image} />
         </div>
-      </section>
-      <section id="section3" className={styles.duvidasSection}>
-        <p>
-          section3
-        </p>
       </section>
 
       {/* Seção de vídeo e sobre a academia */}
-      <section className={styles.academiaSection}>
-        <div className={styles.textAndVideo}>
-          <div className={styles.textContent}>
-            <h2>Sobre a Academia</h2>
-            <p>
-              Nossa academia oferece uma estrutura de ponta, com equipamentos modernos e profissionais qualificados para ajudá-lo a alcançar seus objetivos.
-            </p>
-          </div>
-          <div className={styles.videoContent}>
-            <video controls className={styles.video}>
-              <source src="/path-to-video.mp4" type="video/mp4" />
-              Seu navegador não suporta o formato de vídeo.
+      <section id="section3" className={styles.academiaSection}>
+        <div className='bigbox'>
+          <div className= 'left'>
+            <p>video</p>
+            <video width="500" height="250" controls >
+            <source src="..Videos/video1.mp4" type="video/mp4"/>
             </video>
+          </div>
+          <div className='right'>
           </div>
         </div>
       </section>
+      
 
       {/* Seção de dúvidas */}
-      <section id="Section3" className={styles.duvidasSection}>
-        <h2>Bem-vindo à nossa plataforma!</h2>
-        <p>Exploração das funcionalidades e conteúdos exclusivos para você.</p>
-      </section>
+      <section id="Section4" className={styles.duvidasSection} bigbox>
+      <p className={styles.pfrase}>MAIS QUE UMA ACADEMIA!</p>
+
+        <h1>Um centro de treinamento com as melhores máquinas e a maior diversidade do Brasil. Junto dos melhores especialistas e dos profissionais mais capacitados.  Agora vc pode viver a filosofia Bodybuilder e mudar a sua vida, seja performance ou qualidade de vida! Aqui vc é tratado como um campeão, pois entendemos que a sua meta é a nossa meta.  Aberta para todas as pessoas - Do iniciante ao avançado e do jovem a melhor idade. </h1>
+        </section>
 
       {/* Seção de planos */}
       <section id="Section4" className={styles.planosSection}>
@@ -107,9 +103,9 @@ const Home = () => {
 
       {/* Seção de produtos */}
       <section id="Section5" className={styles.produtosSection}>
-        <h2>Fale Conosco</h2>
-        <p>Entre em contato para mais informações sobre nossos serviços.</p>
-        <button className={styles.ctaButton}>Entrar em Contato</button>
+        <div>
+      <img src={bombadoicon} alt="bombado" className={styles.image} />
+      </div>
       </section>
 
       {/* Rodapé */}
