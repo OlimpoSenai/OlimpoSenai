@@ -2,7 +2,6 @@
 /* Container principal */
 
 
-
 /* Navbar */
 .navbar {
   display: flex;
@@ -102,6 +101,7 @@ nav {
   filter: brightness(0.5);
   z-index: 1;
   pointer-events: none;
+  height: 1050px;
 }
 
 .welcomeSection .buttons {
@@ -189,17 +189,17 @@ nav {
 }
 
 /* Duvidas e Planos */
-.duvidasSection, .planosSection {
+.duvidasSection {
   padding: 80px 20px;
-  width: 100%;
-  max-width: 1200px;
-  margin: 40px 0;
-  text-align: center;
-  background-color: #f4f4f4;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    height: 100vh;
 }
-
+.planosSection {
+  background-color: black;
+}
 .ctaButton {
   background-color: #007bff;
   color: white;
@@ -222,4 +222,59 @@ nav {
   background-color: #111;
   color: white;
   font-size: 14px;
+}
+
+/* Bigbox container */
+.academiaSection .bigbox {
+  display: flex; /* Usa flexbox para alinhar elementos lado a lado */
+  justify-content: space-between; /* Espaço entre os itens */
+  align-items: center; /* Alinha verticalmente no centro */
+  padding: 20px;
+  height: 100vh;
+  background-color: black;
+}
+
+/* Lado esquerdo (vídeo) */
+.academiaSection .left {
+  flex: 1; /* O vídeo ocupa 50% do espaço disponível */
+  padding-right: 20px; /* Espaço entre o vídeo e o texto */
+}
+
+/* Lado direito (texto) */
+.academiaSection .right {
+  flex: 1; /* O texto ocupa 50% do espaço disponível */
+  padding-left: 20px; /* Espaço entre o texto e o vídeo */
+}
+
+/* Estilo do texto */
+.academiaSection .pfrases {
+  font-size: 1.2em;
+  color: #ffffff;
+  line-height: 1.6;
+  font-size: 40px;
+}
+
+/* Ajuste do vídeo */
+.academiaSection video {
+  width: 100%; /* Faz o vídeo ocupar toda a largura disponível do contêiner */
+  max-width: 800px; /* Limita a largura máxima do vídeo */
+  height: auto; /* Mantém a proporção do vídeo */
+}
+
+.duvidasSection {
+  text-align: center;
+  padding: 250px 20px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.academiaImage {
+  left: 50%;
 }

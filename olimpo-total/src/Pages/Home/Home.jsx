@@ -4,8 +4,10 @@ import { Link as ScrollLink } from 'react-scroll';
 import OlimpoIcon from "../../assets/OlimpoIcon.png";
 import styles from './Home.module.css'; // CSS Module
 import { Helmet } from 'react-helmet';
-import imagemIcon from "../../assets/olimpo.png";
-
+import colemanicon from  "../../assets/coleman.png";
+import forcaicon from "../../assets/forca.png";
+import bombadoicon from "../../assets/bombado.png";
+import academiaImage from "../../assets/academiaImage.png";
 const Home = () => {
   const navigate = useNavigate();
 
@@ -33,11 +35,11 @@ const Home = () => {
           <ScrollLink to="section2" smooth={true} duration={500} className={styles.navLink}>
             Financeiro
           </ScrollLink>
+          <ScrollLink to="section3" smooth={true} duration={500} className={styles.navLink}>
+            Dúvidas
+          </ScrollLink>
           <ScrollLink to="Section4" smooth={true} duration={500} className={styles.navLink}>
             Planos
-          </ScrollLink>
-          <ScrollLink to="Section5" smooth={true} duration={500} className={styles.navLink}>
-            Produtos
           </ScrollLink>
         </nav>
       </header>
@@ -62,35 +64,46 @@ const Home = () => {
           O seu objetivo também é o nosso!
         </p>
         <div className={styles.images}>
-          <img src={imagemIcon} alt="Imagem Motivacional 1" className={styles.image} />
-          <img src="/path-to-image2.jpg" alt="Imagem Motivacional 2" className={styles.image} />
+          <img src={colemanicon} alt="Imagem Motivacional 1" className={styles.image} />
+          <img src={forcaicon} alt="Imagem Motivacional 2" className={styles.image} />
         </div>
       </section>
 
+      {/* Seção de vídeo e sobre a academia */}
+      <section id="section3" className={styles.academiaSection}>
+  <div className={styles.bigbox}>
+    <div className={styles.left}>
+      <p>video</p>
+      <video width="500" height="250" controls>
+        <source src="../Videos/video1.mp4" type="video/mp4" />
+      </video>
+    </div>
+    <div className={styles.right}>
+      <p className={styles.pfrases}>
+        Foco, força, disciplina e resultados! A motivação está dentro de você e o ambiente para te inspirar é aqui!<br />
+        O seu objetivo também é o nosso!
+      </p>
+    </div>
+  </div>
+</section>
+      
+
       {/* Seção de dúvidas */}
-      <section id="Section3" className={styles.duvidasSection}>
-        <h2>Bem-vindo à nossa plataforma!</h2>
-        <p>Exploração das funcionalidades e conteúdos exclusivos para você.</p>
-      </section>
+      <section id="Section4" className={styles.duvidasSection} bigbox>
+        <img src={academiaImage} alt="imagemAcademia" className={styles.academiaImage}/>
+        </section>
 
       {/* Seção de planos */}
-      <section id="Section4" className={styles.planosSection}>
-        <h2>Novidades</h2>
-        <p>Veja as últimas atualizações que preparamos para você!</p>
-        <button className={styles.ctaButton}>Ver Mais</button>
-      </section>
-
-      {/* Seção de produtos */}
-      <section id="Section5" className={styles.produtosSection}>
-        <h2>Fale Conosco</h2>
-        <p>Entre em contato para mais informações sobre nossos serviços.</p>
-        <button className={styles.ctaButton}>Entrar em Contato</button>
-      </section>
-
-      {/* Rodapé */}
+      <section id="Section5" className={styles.planosSection}>
+      <div>
+      <img src={bombadoicon} alt="bombado" className={styles.imageCara} />
+      </div>
       <footer className={styles.footer}>
         <p>© 2024 OLIMPO - Todos os direitos reservados.</p>
       </footer>
+      </section>
+
+
     </div>
   );
 };
