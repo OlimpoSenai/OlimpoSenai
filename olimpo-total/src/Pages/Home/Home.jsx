@@ -4,6 +4,7 @@ import { Link as ScrollLink } from 'react-scroll';
 import OlimpoIcon from "../../assets/OlimpoIcon.png";
 import styles from './Home.module.css'; // CSS Module
 import { Helmet } from 'react-helmet';
+import imagemIcon from "../../assets/olimpo.png";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -31,9 +32,6 @@ const Home = () => {
           </ScrollLink>
           <ScrollLink to="section2" smooth={true} duration={500} className={styles.navLink}>
             Financeiro
-          </ScrollLink>
-          <ScrollLink to="section3" smooth={true} duration={500} className={styles.navLink}>
-            Dúvidas
           </ScrollLink>
           <ScrollLink to="Section4" smooth={true} duration={500} className={styles.navLink}>
             Planos
@@ -64,31 +62,8 @@ const Home = () => {
           O seu objetivo também é o nosso!
         </p>
         <div className={styles.images}>
-          <img src="/path-to-image1.jpg" alt="Imagem Motivacional 1" className={styles.image} />
+          <img src={imagemIcon} alt="Imagem Motivacional 1" className={styles.image} />
           <img src="/path-to-image2.jpg" alt="Imagem Motivacional 2" className={styles.image} />
-        </div>
-      </section>
-      <section id="section3" className={styles.duvidasSection}>
-        <p>
-          section3
-        </p>
-      </section>
-
-      {/* Seção de vídeo e sobre a academia */}
-      <section className={styles.academiaSection}>
-        <div className={styles.textAndVideo}>
-          <div className={styles.textContent}>
-            <h2>Sobre a Academia</h2>
-            <p>
-              Nossa academia oferece uma estrutura de ponta, com equipamentos modernos e profissionais qualificados para ajudá-lo a alcançar seus objetivos.
-            </p>
-          </div>
-          <div className={styles.videoContent}>
-            <video controls className={styles.video}>
-              <source src="/path-to-video.mp4" type="video/mp4" />
-              Seu navegador não suporta o formato de vídeo.
-            </video>
-          </div>
         </div>
       </section>
 

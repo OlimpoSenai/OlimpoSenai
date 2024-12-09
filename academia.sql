@@ -5,7 +5,7 @@ create table usuario(
 id int primary key auto_increment not null,
 nome varchar(50) not null,
 email varchar(50) not null,
-cpf char(11) not null,
+cpf char(14) not null,
 senha varchar(255) not null
 );
 

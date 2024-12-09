@@ -23,6 +23,7 @@ const transporter = nodemailer.createTransport({
 });
 
 // Senha específica para o administrador
+const ADM_NAME = 'admin234'
 const ADM_PASSWORD = 'admin123';  // Defina aqui a senha que o administrador precisa fornecer
 
 // ---------------------------- ROTAS DE USUÁRIO ----------------------------
