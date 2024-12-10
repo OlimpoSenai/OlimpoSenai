@@ -10,7 +10,6 @@ import { validarEmail, formatarEmail } from '../../util/validarEmail';  // Impor
 import { Helmet } from 'react-helmet';
 
 const Login = () => {
-  
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [erroEmail, setErroEmail] = useState('');  // Estado para erro de email
@@ -21,40 +20,41 @@ const Login = () => {
   // Função que é chamada ao submeter o formulário de login
   const handleSubmitLogin = async (event) => {
     event.preventDefault();
-
+  
     // Limpar erros anteriores
     setErroEmail('');
     setErroSenha('');
-
+  
     // Validação do formato do e-mail
     if (!validarEmail(email)) {
       setErroEmail('E-mail inválido');
       return;
     }
-
+  
     // Formatar o e-mail para minúsculas
     const emailFormatado = formatarEmail(email);
-
     const userCredentials = { email: emailFormatado, senha };
-
+  
     try {
       const response = await axios.post('http://localhost:3001/login', userCredentials);
-
+  
       if (response.status === 200) {
         // Armazenar o token JWT e tipo de usuário no localStorage
         localStorage.setItem('token', response.data.token);
         localStorage.setItem('tipo', response.data.tipo);  // Armazena o tipo de usuário
-
+  
         // Redireciona dependendo do tipo de usuário
         if (response.data.tipo === 'admin') {
-          navigate('/AdminDashboard');  // Redireciona para a página de administração
+          navigate('/PaginaAdm');  // Redireciona para a página de administração
+        } else if (response.data.tipo === 'funcionario') {
+          navigate('/FuncionarioPagina');  // Redireciona para a página do funcionário
         } else {
-          navigate('/Homelog');  // Redireciona para a página normal do usuário
+          navigate('/Homelog');  // Caso seja um usuário comum
         }
       }
     } catch (error) {
       console.error('Erro ao fazer login:', error);
-
+  
       // Exibir mensagem de erro caso a autenticação falhe
       if (error.response && error.response.data) {
         if (error.response.data.error === 'Email ou senha inválidos') {
@@ -72,7 +72,7 @@ const Login = () => {
       }
     }
   };
-
+  
   return (
     <div className={styles.container}>
       <Helmet>
@@ -99,7 +99,7 @@ const Login = () => {
                 className={styles.inputLogin} 
                 placeholder="E-mail" 
                 required 
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={(e) => setEmail(e.target.value)} 
               />
               <FiMail className={styles.icon} />
             </div>
@@ -112,7 +112,7 @@ const Login = () => {
                 type={mostrarSenha ? "text" : "password"}  // Exibe a senha dependendo do estado
                 placeholder="Senha"
                 required
-                onChange={(e) => setSenha(e.target.value)}
+                onChange={(e) => setSenha(e.target.value)} 
               />
               <FaLock className={styles.icon} />
               <button
@@ -125,12 +125,12 @@ const Login = () => {
             </div>
             <button className={styles.loginButton} type="submit">Login</button>
             <p className={styles.esqueciSenha}>
-            <a 
+              <a 
                 href="/EsqueciSenha" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className={styles.link}
-                >
+              >
                 Esqueci minha senha
               </a>
             </p>

@@ -1,122 +1,290 @@
-/* Container principal */
-.homeContainer {
-    font-family: Arial, sans-serif;
-    background-color: #000;
-    color: #fff;
-    width: 100%;
+/* Garante que a página ocupe toda a altura da tela */
+.adminContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 100%;
+  justify-content: flex-start;
+  padding: 20px;
+  background-color: #222; /* Fundo escuro neutro */
+  color: white;
+}
 
-  }
-  
-  /* Navbar */
-  .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 20px;
-    background-color: #111;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    flex-wrap: wrap; /* Permite que os itens da navbar se ajustem em telas pequenas */
-  }
-  
-  .logo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .logoImage {
-    width: 100px; /* Ajuste o tamanho conforme necessário */
-    height: auto;
-  }
-  
-  nav {
-    display: flex;
-    gap: 15px; /* Espaçamento entre os links */
-  }
-  
-  .navLink {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  @media (max-width: 768px) {
-    /* Para dispositivos móveis */
-    .navbar {
-      justify-content: center;
-      padding: 10px;
-    }
-  
-    .logoImage {
-      width: 90px; /* Ajuste o tamanho da logo em telas pequenas */
-    }
-  
-    nav {
-      flex-direction: column; /* Alinha os links verticalmente */
-      gap: 10px; /* Ajuste o espaçamento entre os links */
-    }
-  
-  }
-  
-  /* Seção de boas-vindas */
-  .welcomeSection {
-    text-align: center;
-    padding: 50px 20px;
-    background-image: url('/path-to-background.jpg');
-    background-size: cover;
-    background-position: center;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  
-  .welcomeSection h1 {
-    font-size: 36px;
-  }
-  
+.adminContainer h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  text-align: center; /* Centraliza o título */
+  color: #A4D8A0; /* Verde claro para o título */
+}
 
-  
-  
-  
-  /* Motivação */
-  .motivationSection {
-    padding: 40px 20px;
-    text-align: center;
-  }
-  
-  .images {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  .image {
-    width: 200px;
-    border: 2px solid #fff;
-  }
-  
-  /* Depoimento ou mensagem */
-  .testimonySection {
-    padding: 20px;
-    background-color: #111;
-    text-align: center;
-    font-style: italic;
-  }
-  
-  /* Rodapé */
-  .footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #111;
-    font-size: 14px;
-  }
+/* Tabelas e seções */
+.createFuncionarioSection,
+.usuariosSection,
+.editarUsuarioSection,
+.funcionariosSection {
+  width: 100%;
+  max-width: 1000px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centraliza a tabela */
+  box-sizing: border-box; /* Garante que margens e bordas não ultrapassem o limite */
+}
 
-  .h1{
-    padding: 30px;
-  }
+.createFuncionarioSection {
+  background-color: #333;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.createFuncionarioSection form {
+  display: flex;
+  flex-direction: column;
+}
+
+.createFuncionarioSection input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+  border: 1px solid #555;
+  background-color: #444;
+  color: white;
+}
+
+.createFuncionarioSection button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #666;
+  color: white;
+  cursor: pointer;
+}
+
+.createFuncionarioSection button:hover {
+  background-color: #777;
+}
+
+/* Tabelas */
+.usuariosSection table,
+.funcionariosSection table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  max-width: 1000px; /* Garante que as tabelas não se estiquem demais */
+  margin: 20px auto; /* Centraliza as tabelas */
+  box-sizing: border-box; /* Garante que a tabela se ajuste corretamente dentro do seu container */
+}
+
+.usuariosSection th,
+.usuariosSection td,
+.funcionariosSection th,
+.funcionariosSection td {
+  padding: 15px; /* Maior espaçamento nas células */
+  text-align: center; /* Centraliza o conteúdo das células */
+  border: 1px solid #3C5C4B; /* Verde escuro suave para a borda */
+}
+
+.usuariosSection th,
+.funcionariosSection th {
+  background-color: #2A3D32; /* Verde escuro para o cabeçalho */
+  color: white;
+  font-size: 1.2rem; /* Tamanho maior para os cabeçalhos */
+}
+
+.usuariosSection tr:nth-child(even),
+.funcionariosSection tr:nth-child(even) {
+  background-color: #3C5C4B; /* Verde mais claro para as linhas pares */
+}
+
+.usuariosSection tr:hover,
+.funcionariosSection tr:hover {
+  background-color: #4A6F59; /* Verde mais claro para o hover */
+}
+
+.usuariosSection button,
+.funcionariosSection button {
+  width: 100%; /* Os botões ocupam toda a largura da célula */
+  padding: 12px;
+  background-color: #28a745; /* Verde escuro para o botão */
+  border: none;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+  margin: 5px 0; /* Espaçamento entre os botões */
+}
+
+.usuariosSection button:hover,
+.funcionariosSection button:hover {
+  background-color: #5A7D67; /* Verde mais claro para o hover */
+}
+
+/* Pesquisa de usuários */
+.searchBox {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #555;
+  background-color: #444;
+  color: white;
+}
+
+.searchBox input[type="text"] {
+  width: 90%;
+  display: inline-block;
+}
+
+.searchBox button {
+  width: 10%;
+  display: inline-block;
+  padding: 10px;
+  background-color: #28a745; /* Verde escuro para o botão */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.searchBox button:hover {
+  background-color: #5A7D67; /* Verde mais claro para o hover */
+}
+
+/* Estilo da tabela de edição de usuário */
+.editarUsuarioSection {
+  display: flex;
+  flex-direction: column; /* Organiza os itens em coluna */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  width: 100%;
+  max-width: 900px; /* Limita a largura máxima */
+  margin: 30px auto; /* Centraliza a seção na tela com margem superior */
+}
+
+.editarUsuarioSection form {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Faz o formulário ocupar toda a largura disponível */
+  background-color: #333;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.editarUsuarioSection input {
+  width: 100%; /* Faz os inputs ocuparem toda a largura disponível */
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+  border: 1px solid #555;
+  background-color: #444;
+  color: white;
+}
+
+.editarUsuarioSection button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #666;
+  color: white;
+  cursor: pointer;
+}
+
+.editarUsuarioSection button:hover {
+  background-color: #777;
+}
+
+.editarUsuarioSection td {
+  padding: 15px;
+  text-align: center;
+  border: 1px solid #3C5C4B;
+}
+
+.editarUsuarioSection th {
+  background-color: #2A3D32;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.editarUsuarioSection tr:nth-child(even) {
+  background-color: #3C5C4B;
+}
+
+.editarUsuarioSection tr:hover {
+  background-color: #4A6F59;
+}
+
+.editarUsuarioSection button:hover {
+  background-color: #5A7D67;
+}
+
+
+
+/* Estilo da tabela de edição de funcionário (igual ao de editar usuário) */
+.editarFuncionarioSection {
+  display: flex;
+  flex-direction: column; /* Organiza os itens em coluna */
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+  width: 100%;
+  max-width: 900px; /* Limita a largura máxima */
+  margin: 30px auto; /* Centraliza a seção na tela com margem superior */
+}
+
+.editarFuncionarioSection form {
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* Faz o formulário ocupar toda a largura disponível */
+  background-color: #333;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+.editarFuncionarioSection input {
+  width: 100%; /* Faz os inputs ocuparem toda a largura disponível */
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+  border: 1px solid #555;
+  background-color: #444;
+  color: white;
+}
+
+.editarFuncionarioSection button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #666;
+  color: white;
+  cursor: pointer;
+}
+
+.editarFuncionarioSection button:hover {
+  background-color: #777;
+}
+
+.editarFuncionarioSection td {
+  padding: 15px;
+  text-align: center;
+  border: 1px solid #3C5C4B;
+}
+
+.editarFuncionarioSection th {
+  background-color: #2A3D32;
+  color: white;
+  font-size: 1.2rem;
+}
+
+.editarFuncionarioSection tr:nth-child(even) {
+  background-color: #3C5C4B;
+}
+
+.editarFuncionarioSection tr:hover {
+  background-color: #4A6F59;
+}
+
+.editarFuncionarioSection button:hover {
+  background-color: #5A7D67;
+}

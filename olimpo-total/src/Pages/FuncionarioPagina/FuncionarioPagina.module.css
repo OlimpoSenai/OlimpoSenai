@@ -1,0 +1,62 @@
+/* FuncionarioPagina.module.css */
+
+.container {
+    padding: 20px;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .inputField {
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .textareaField {
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    height: 100px;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: #45a049;
+  }
+  
+  .searchResults {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .searchResultItem {
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  .searchResultItem:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .selectedUser {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+  }
+  

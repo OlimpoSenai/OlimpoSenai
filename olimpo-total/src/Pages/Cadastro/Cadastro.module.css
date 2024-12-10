@@ -202,13 +202,3 @@ p {
 input::placeholder {
     text-indent: 5px;  /* Ajuste de indentação para todos os campos de texto */
 }
-
-.esqueciSenha a {
-    font-family: "Montserrat", sans-serif;
-    transition: color 0.3s ease, color 0.3s ease;
-}
-
-.esqueciSenha a:hover {
-    color: #30F537; /* Cor ao passar o mouse */
-    text-decoration: underline; /* Opcional: adiciona um sublinhado no hover */
-}

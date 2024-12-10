@@ -1,55 +1,85 @@
-import { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import OlimpoIcon from "../../assets/OlimpoIcon.png";
-import styles from './Homelog.module.css'; // Importação do CSS Module
+import styles from './Homelog.module.css'; // Importando o CSS Module
+import axios from 'axios';
 
 const Homelog = () => {
   const navigate = useNavigate();
+  const [usuario, setUsuario] = useState(null);
+  const [treinos, setTreinos] = useState([]);
 
   useEffect(() => {
-    // Verifique se o token está presente no localStorage
     const token = localStorage.getItem('token');
     if (!token) {
-      // Redireciona para a página de login se o token não for encontrado
       navigate('/Login');
+    } else {
+      const userId = JSON.parse(atob(token.split('.')[1])).userId;
+      buscarUsuario(userId);
+      buscarTreinos(userId);
     }
   }, [navigate]);
 
-  // Função para deslogar o usuário
+  const buscarUsuario = async (userId) => {
+    try {
+      const response = await axios.get(`http://localhost:3001/usuario/${userId}`);
+      setUsuario(response.data);
+    } catch (error) {
+      console.error('Erro ao buscar informações do usuário:', error);
+    }
+  };
+
+  const buscarTreinos = async (usuarioId) => {
+    try {
+      const response = await axios.get(`http://localhost:3001/treinos/${usuarioId}`);
+      setTreinos(response.data);
+    } catch (error) {
+      console.error('Erro ao buscar treinos:', error);
+    }
+  };
+
   const handleLogout = () => {
-    localStorage.removeItem('token'); // Remove o token do localStorage
-    navigate('/Home'); // Redireciona para a página de login
+    localStorage.removeItem('token');
+    navigate('/Home');
   };
 
   return (
     <div className={styles.homeContainer}>
-      {/* Navbar */}
       <header className={styles.navbar}>
         <div className={styles.logo}>
           <img src={OlimpoIcon} alt="OLIMPO" className={styles.logoImage} />
         </div>
-        <nav>
         <button onClick={handleLogout} className={styles.logoutButton}>Sair</button>
-        </nav>
       </header>
 
-      <section className={styles.treinosSection}>
-        <p>
-          Foco, força, disciplina e resultados! A motivação está dentro de você e o ambiente para te inspirar é aqui!<br />
-          O seu objetivo também é o nosso!
-        </p>
-        <div>
-        </div>
+      <section className={styles.profileSection}>
+        {usuario ? (
+          <div className={styles.userDetails}>
+            <h2>Olá, {usuario.nome}!</h2>
+            <p>Bem-vindo ao seu painel de treinos.</p>
+          </div>
+        ) : (
+          <p>Carregando informações...</p>
+        )}
       </section>
 
-      {/* Vídeo sobre a Academia */}
-      <section className={styles.videoSection} bigbox>
-        <div className={styles.text}>
-          <h2>Sobre a Academia</h2>
-          <p>
-            A nossa academia oferece um espaço moderno e bem equipado para que você alcance seus objetivos fitness. Contamos com professores especializados, equipamentos de última geração e uma variedade de atividades para todos os níveis de condicionamento físico.
-          </p>
-        </div>
+      <section className={styles.treinoSection}>
+        <h3>Seus Treinos</h3>
+        {treinos.length > 0 ? (
+          <ul className={styles.treinoList}>
+            {treinos.map((treino) => (
+              <li key={treino.id} className={styles.treinoItem}>
+                <div className={styles.treinoHeader}>
+                  <h4>{treino.nome}</h4>
+                  <span>{treino.tipo}</span>
+                </div>
+                <p>{treino.descricao}</p>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className={styles.noTreinos}>Você ainda não tem treinos atribuídos.</p>
+        )}
       </section>
 
       <footer className={styles.footer}>

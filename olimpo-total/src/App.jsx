@@ -7,6 +7,7 @@ import Homelog from "./Pages/Homelog/Homelog.jsx";
 import PaginaAdm from "./Pages/PaginaAdm/PaginaAdm.jsx";
 import EsqueciSenha from "./Pages/EsqueciSenha/EsqueciSenha.jsx";
 import ResetarSenha from "./Pages/ResetarSenha/ResetarSenha.jsx";
+import FuncionarioPagina from "./Pages/FuncionarioPagina/FuncionarioPagina.jsx";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/PaginaAdm" element={<PaginaAdm />} />
           <Route path="/EsqueciSenha" element={<EsqueciSenha />} />
           <Route path="/resetar-Senha" element={<ResetarSenha />} />
+          <Route path="/FuncionarioPagina" element={<FuncionarioPagina />} />
         </Routes>
       </div>
     </Router>
