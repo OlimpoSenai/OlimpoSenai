@@ -33,13 +33,10 @@ const Home = () => {
             home
           </ScrollLink>
           <ScrollLink to="section2" smooth={true} duration={500} className={styles.navLink}>
-            Financeiro
+            Sobre
           </ScrollLink>
           <ScrollLink to="section3" smooth={true} duration={500} className={styles.navLink}>
             Dúvidas
-          </ScrollLink>
-          <ScrollLink to="Section4" smooth={true} duration={500} className={styles.navLink}>
-            Planos
           </ScrollLink>
         </nav>
       </header>
